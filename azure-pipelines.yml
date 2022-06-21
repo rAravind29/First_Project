@@ -16,7 +16,7 @@ stages:
       - job: 'Unit_Job'
         displayName: 'Running Unit Job'
         steps:
-          - script: echo 'Running job from azure through Git'
+          - script: echo 'Running job from azure through Git with maven'
           - task: Maven@3
             inputs:
               mavenPomFile: 'pom.xml'
