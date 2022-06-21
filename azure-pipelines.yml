@@ -17,4 +17,17 @@ stages:
         displayName: 'Running Unit Job'
         steps:
           - script: echo 'Running job from azure through Git'
+          - task: Maven@3
+            inputs:
+              mavenPomFile: 'pom.xml'
+              publishJUnitResults: true
+              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              testRunTitle: 'test for maven'
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
+              checkStyleRunAnalysis: true
+              pmdRunAnalysis: true
 
